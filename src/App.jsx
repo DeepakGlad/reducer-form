@@ -3,9 +3,9 @@ import { useReducer } from 'react'
 import { useRef } from 'react'
 
 import './App.css'
-
+import { Outlet } from 'react-router-dom';
 function App() {
-const username = useRef("");
+
 
 
 
@@ -73,13 +73,13 @@ const initialState = {
 
   const onClickReset = () =>{
     dispach({type:"reset", payload:"" });
-    username="";
+
   }
 
   return (
     <>
       <div>
-        <form ref={username}>
+        <form >
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-4">
           <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
@@ -130,6 +130,7 @@ const initialState = {
           </div>
         </form>
       </div>
+      {Outlet}
     </>
   )
 }
